@@ -26,7 +26,7 @@ import_gazebo_models() {
 
     # download archive only if the remote hash differs from the local one
     if [[ ! -r "${local_hash}" ]] || ! cmp -s "${remote_hash}" "${local_hash}" ; then
-        curl -so "${archive}" "${nextcloud_download}/${MODELS_ARCHIVE}"
+        curl -Lo "${archive}" "${nextcloud_download}/${MODELS_ARCHIVE}"
         if tar -C gazebo -xvf "${archive}" ; then
             mv -f "${remote_hash}" "${local_hash}"
         else
