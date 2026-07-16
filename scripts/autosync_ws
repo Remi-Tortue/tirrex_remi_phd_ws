@@ -36,7 +36,7 @@ if [[ -z "$remote_path" ]] ; then
 fi
 
 sync_files() {
-  rsync -ac --info=NAME -e "${ssh_cmd}" --delete \
+  rsync -ac --info=NAME -e "${ssh_cmd}" \
     --exclude __pycache__  --exclude .git -- \
     $sync_list \
     "${host}:${remote_path}"

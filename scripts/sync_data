@@ -34,4 +34,4 @@ else
   remote_path="$2/data"
 fi
 
-rsync -aPc -e "${ssh_cmd}" "${host}:${remote_path}" "${local_path}"
+rsync -aP -e "${ssh_cmd}" "${host}:${remote_path}" "${local_path}"
