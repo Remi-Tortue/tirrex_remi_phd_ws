@@ -3,7 +3,11 @@ services:
     extends:
       file: docker/common.yaml
       service: build
-    command: colcon --log-base /dev/null build --symlink-install --event-handlers event_log- log-
+    command: >-
+      colcon --log-base /dev/null build
+        --symlink-install
+        --event-handlers event_log- log-
+        --continue-on-error
 
   bash:  # open a shell inside the ROS environment of this workspace
     extends:
