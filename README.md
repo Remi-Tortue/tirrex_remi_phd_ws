@@ -94,6 +94,10 @@ session).
 This workspace also use the `vcs` command to manage the packages included in`src/` or `demos/`.
 If you have installed ROS on your system, the command is already installed.
 If not, you can install it using `apt install vcstool` (for Ubuntu 24) or using `pip`.
+You can check it is correctly installed with by executing
+```
+vcs --version
+```
 
 
 ### Configuring
