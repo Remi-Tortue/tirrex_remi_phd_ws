@@ -34,7 +34,7 @@ create_binded_files() {
   mkdir -p "${HOME}/.ros"
   mkdir -p "${HOME}/.config/ros.org"
   touch -a "${HOME}/.bash_history"
-  touch -a "${HOME}/.Xauthority"  # used to open GUI through ssh
+  # touch -a "${HOME}/.Xauthority"  # used to open GUI through ssh
 }
 
 initialize_env_file

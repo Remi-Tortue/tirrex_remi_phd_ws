@@ -10,3 +10,11 @@
 /.env
 *.dat
 recorded.traj
+
+# add an exception for these specific files
+c_generated_code/
+.vscode/
+.__pycache__
+*.egg-info/
+logs*/
+src/

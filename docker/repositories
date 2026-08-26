@@ -11,4 +11,34 @@ repositories:
     version: jazzy
   # add your repos here
 
+  src/gesture_command:
+    type: git
+    url: git@github.com:Remi-Tortue/gesture_command.git
+    version: dev
+
+  src/ArUco_gazebo_tiles:
+    type: git
+    url: https://github.com/Remi-Tortue/ArUco_gazebo_tiles.git
+    version: main
+
+  src/gazebo_procedural_world_generation:
+    type: git
+    url: https://github.com/Remi-Tortue/gazebo_procedural_world_generation.git
+    version: main
+
+  src/move_gz_object:
+    type: git
+    url: https://github.com/Remi-Tortue/move_gz_object.git
+    version: main
+
+  src/ros2_visual_marker:
+    type: git
+    url: https://github.com/Remi-Tortue/ros2_visual_marker.git
+    version: main
+
+  src/skeleton_detection:
+    type: git
+    url: https://gitlab.laas.fr/crizk1/skeleton_detection.git
+    version: main
+
 # vim: ft=yaml
