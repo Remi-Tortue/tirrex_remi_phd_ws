@@ -18,22 +18,22 @@ repositories:
 
   src/ArUco_gazebo_tiles:
     type: git
-    url: https://github.com/Remi-Tortue/ArUco_gazebo_tiles.git
+    url: git@github.com:Remi-Tortue/ArUco_gazebo_tiles.git
     version: main
 
   src/gazebo_procedural_world_generation:
     type: git
-    url: https://github.com/Remi-Tortue/gazebo_procedural_world_generation.git
+    url: git@github.com:Remi-Tortue/gazebo_procedural_world_generation.git
     version: main
 
   src/move_gz_object:
     type: git
-    url: https://github.com/Remi-Tortue/move_gz_object.git
+    url: git@github.com:Remi-Tortue/move_gz_object.git
     version: main
 
   src/ros2_visual_marker:
     type: git
-    url: https://github.com/Remi-Tortue/ros2_visual_marker.git
+    url: git@github.com:Remi-Tortue/ros2_visual_marker.git
     version: main
 
   src/skeleton_detection:

@@ -18,3 +18,4 @@ c_generated_code/
 *.egg-info/
 logs*/
 src/
+demos/
