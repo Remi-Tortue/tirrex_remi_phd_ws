@@ -19,6 +19,15 @@ For example, here is a screenshot of the _simu_workshop_ demo:
 ![screenshot of the simu_workshop demo](/doc/medias/screenshot_simu_workshop.png)
 
 
+## Be fast
+
+Build the container :
+`docker compose build compile`
+
+Compile ros2 workspace :
+`docker compose run --rm compile`
+
+
 ## Contents
 
 * [Installation](#installation)

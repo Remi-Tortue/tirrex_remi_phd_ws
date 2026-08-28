@@ -9,6 +9,10 @@ RUN --mount=type=bind,source=src,target=/tmp/src \
     rosdep install -iyr --from-paths /tmp/src && \
     rm -rf /var/lib/apt/lists/*
 
+
+# --------------------------------------------------------------------------
+# Base apt dependencies
+# --------------------------------------------------------------------------
 # you can add here ubuntu packages that you want to install (or uncomment the existing ones)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -28,7 +32,10 @@ RUN apt-get update && \
 
 # RUN snap install plotjuggler
 
-# Install python dependencies
+
+# --------------------------------------------------------------------------
+# Base Python dependencies
+# --------------------------------------------------------------------------
 RUN apt-get remove -y python3-matplotlib || true
 RUN pip install --no-cache-dir --ignore-installed \
     "numpy<2" \
@@ -37,16 +44,40 @@ RUN pip install --no-cache-dir --ignore-installed \
     "numpy-quaternion" \
     "opencv-python"
 
-# Install casadi version 3.7.2 for acados
-RUN pip install --no-cache-dir -v "casadi==3.7.2"
 
+
+# --------------------------------------------------------------------------
+# Pixi environments
+# --------------------------------------------------------------------------
+
+RUN wget -qO- https://pixi.sh/install.sh | PIXI_HOME=/usr/local bash
+
+RUN pixi --version
+
+COPY src/skeleton_detection /opt/skeleton_detection
+
+WORKDIR /opt/skeleton_detection/
+RUN pixi install --all && \
+    pixi run -e default bash -c "colcon build"
+
+
+# --------------------------------------------------------------------------
 # Install o2r_pi2_controllers
+# --------------------------------------------------------------------------
 COPY src/gesture_command/third_party/o2r_pi2_controllers /opt/o2r_pi2_controllers
 
 WORKDIR /opt/o2r_pi2_controllers
 RUN pip install -e .
 
-# Build acados C library
+
+# --------------------------------------------------------------------------
+# Install casadi version 3.7.2 for acados
+# --------------------------------------------------------------------------
+RUN pip install --no-cache-dir -v "casadi==3.7.2"
+
+# --------------------------------------------------------------------------
+# Install acados from o2r_pi2_controllers
+# --------------------------------------------------------------------------
 WORKDIR /opt/o2r_pi2_controllers/third_party/acados
 RUN mkdir -p build && cd build && \
     cmake \
@@ -65,3 +96,5 @@ RUN mkdir -p build && cd build && \
 
 ENV ACADOS_SOURCE_DIR=/opt/o2r_pi2_controllers/third_party/acados
 ENV LD_LIBRARY_PATH=/opt/o2r_pi2_controllers/third_party/acados/lib:${LD_LIBRARY_PATH}
+
+

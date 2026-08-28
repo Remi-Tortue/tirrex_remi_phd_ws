@@ -21,3 +21,43 @@ services:
       file: docker/common.yaml
       service: x11_base
     command: sleep infinity
+
+
+  adap2e_simulator:
+    extends:
+      file: docker/common.yaml
+      service: x11_base
+    command:
+      ros2 launch tirrex_core core.launch.py demo_configuration_directory:=${WORKSPACE}/demos/examples/simu_adap2e/config robot_namespace:=adap2e mode:=simulation_gazebo
+
+  yolo_test:
+    extends:
+      file: docker/common.yaml
+      service: x11_gpu
+    command:
+      - bash
+      - -c
+      - |
+          cd /opt/skeleton_detection &&
+          pixi run -e yolo bash -c 'source install/setup.bash && ros2 run skeleton_detection_pkg yolo_node'
+
+
+  gesture_command_test:
+    extends:
+      file: docker/common.yaml
+      service: x11_base
+    command:
+      - bash
+      - -c
+      - |
+          export LD_LIBRARY_PATH=/opt/o2r_pi2_controllers/third_party/acados/lib:${LD_LIBRARY_PATH} &&
+          source /opt/ros/jazzy/setup.bash &&
+          ros2 launch gesture_command expe_mm_navig_occ_avoid.launch.py \
+            use_rqt:=False \
+            use_rviz:=False \
+            robot:=campero \
+            env_mode:=plot \
+            controller_type:=MPC \
+            build_solver:=True \
+            lexico_priority_order:=[0,1,2] \
+            seed_value:=1
