@@ -79,6 +79,7 @@ RUN mkdir -p build && cd build && \
     chmod 755 ../bin/t_renderer
 
 ENV ACADOS_SOURCE_DIR=/opt/o2r_pi2_controllers/third_party/acados
+# # added in docker/bash_extra_env.sh
 # ENV LD_LIBRARY_PATH=/opt/o2r_pi2_controllers/third_party/acados/lib:${LD_LIBRARY_PATH}
 
 
@@ -124,11 +125,3 @@ ENV ACADOS_SOURCE_DIR=/opt/o2r_pi2_controllers/third_party/acados
 # RUN pip install --no-cache-dir --ignore-installed \
 #     "ultralytics"
 
-
-# --------------------------------------------------------------------------
-# Add Gazebo model paths
-# --------------------------------------------------------------------------
-
-# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/gazebo_procedural_world_generation/src/gazebo_procedural_world_generation/models"
-# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/gesture_command/gesture_command/worlds"
-# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/ArUco_gazebo_tiles/models"

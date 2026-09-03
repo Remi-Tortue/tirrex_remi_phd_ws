@@ -1,3 +1,28 @@
+
+# Tirrex remi phd ws
+
+Integer my control pipeline to tirrex.
+
+## Be fast
+
+```bash
+# Configure the workspace :
+./scripts/create_ws
+
+# Build the container (more than 10min) :
+docker compose build compile
+
+# Compile ros2 workspace :
+docker compose run --rm compile
+
+# Enter the container shell :
+docker compose run --rm bash
+
+```
+
+
+
+# Origonal Readme
 This project is a ROS2 workspace that extends the tirrex_workspace.
 Its aim is to provide a simple way to work with tirrex and TSCF developments without having to
 recompile everytime the packages of the tirrex workspace (there are more than 150 of them).
@@ -18,17 +43,6 @@ For example, here is a screenshot of the _simu_workshop_ demo:
 
 ![screenshot of the simu_workshop demo](/doc/medias/screenshot_simu_workshop.png)
 
-
-## Be fast
-
-Build the container (more than 10min) :
-`docker compose build compile`
-
-Compile ros2 workspace :
-`docker compose run --rm compile`
-
-Enter the container shell :
-`docker compose run --rm bash`
 
 
 ## Contents
