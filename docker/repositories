@@ -16,6 +16,11 @@ repositories:
     url: git@github.com:Remi-Tortue/gesture_command.git
     version: dev
 
+  src/phd_experiment_config:
+    type: git
+    url: git@github.com:Remi-Tortue/phd_experiment_config.git
+    version: main
+
   src/ArUco_gazebo_tiles:
     type: git
     url: git@github.com:Remi-Tortue/ArUco_gazebo_tiles.git

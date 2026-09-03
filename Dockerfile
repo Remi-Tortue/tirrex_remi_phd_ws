@@ -45,22 +45,6 @@ RUN pip install --no-cache-dir --ignore-installed \
     "opencv-python"
 
 
-
-# --------------------------------------------------------------------------
-# Pixi environments
-# --------------------------------------------------------------------------
-
-RUN wget -qO- https://pixi.sh/install.sh | PIXI_HOME=/usr/local bash
-
-RUN pixi --version
-
-COPY src/skeleton_detection /opt/skeleton_detection
-
-WORKDIR /opt/skeleton_detection/
-RUN pixi install --all && \
-    pixi run -e default bash -c "colcon build"
-
-
 # --------------------------------------------------------------------------
 # Install o2r_pi2_controllers
 # --------------------------------------------------------------------------
@@ -95,6 +79,56 @@ RUN mkdir -p build && cd build && \
     chmod 755 ../bin/t_renderer
 
 ENV ACADOS_SOURCE_DIR=/opt/o2r_pi2_controllers/third_party/acados
-ENV LD_LIBRARY_PATH=/opt/o2r_pi2_controllers/third_party/acados/lib:${LD_LIBRARY_PATH}
+# ENV LD_LIBRARY_PATH=/opt/o2r_pi2_controllers/third_party/acados/lib:${LD_LIBRARY_PATH}
 
 
+# --------------------------------------------------------------------------
+# Pyzed installation
+# https://www.stereolabs.com/docs/development/zed-sdk/linux
+# --------------------------------------------------------------------------
+
+# WORKDIR /opt/
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#     zstd
+
+# RUN wget -O ZED_SDK_Ubuntu24_cuda12_v5.4.zstd.run https://download.stereolabs.com/zedsdk/5.4/cu12/ubuntu24 && \
+#     chmod +x ZED_SDK_Ubuntu24_cuda12_v5.4.zstd.run && \
+#     ./ZED_SDK_Ubuntu24_cuda12_v5.4.zstd.run -- silent --runtime_only --skip_python && \
+#     rm ZED_SDK_Ubuntu24_cuda12_v5.4.zstd.run && \
+#     echo "/usr/local/zed/lib" > /etc/ld.so.conf.d/zed.conf && \
+#     ldconfig
+
+# RUN ldconfig -p | grep libsl_zed
+
+# RUN python3 /usr/local/zed/get_python_api.py
+
+# --------------------------------------------------------------------------
+# Pixi environments
+# --------------------------------------------------------------------------
+
+# RUN wget -qO- https://pixi.sh/install.sh | PIXI_HOME=/usr/local bash
+
+# RUN pixi --version
+
+# COPY src/skeleton_detection /opt/skeleton_detection
+
+# WORKDIR /opt/skeleton_detection/
+# RUN pixi install --all && \
+#     pixi run -e default bash -c "colcon build"
+
+# --------------------------------------------------------------------------
+# Row skeleton_detection_pkg installation
+# --------------------------------------------------------------------------
+
+# RUN pip install --no-cache-dir --ignore-installed \
+#     "ultralytics"
+
+
+# --------------------------------------------------------------------------
+# Add Gazebo model paths
+# --------------------------------------------------------------------------
+
+# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/gazebo_procedural_world_generation/src/gazebo_procedural_world_generation/models"
+# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/gesture_command/gesture_command/worlds"
+# ENV GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:"/home/rporee/phd/remi_phd_ws/src/ArUco_gazebo_tiles/models"

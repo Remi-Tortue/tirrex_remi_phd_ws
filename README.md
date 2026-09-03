@@ -21,11 +21,14 @@ For example, here is a screenshot of the _simu_workshop_ demo:
 
 ## Be fast
 
-Build the container :
+Build the container (more than 10min) :
 `docker compose build compile`
 
 Compile ros2 workspace :
 `docker compose run --rm compile`
+
+Enter the container shell :
+`docker compose run --rm bash`
 
 
 ## Contents
