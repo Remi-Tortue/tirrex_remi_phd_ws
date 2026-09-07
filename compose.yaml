@@ -16,6 +16,8 @@ services:
     profiles: [optional]
     volumes:
       - ./docker/bash_extra_env.sh:/bash_extra_env.sh:ro
+      - ~/rqt_config:/$HOME/.config/ros.org
+      - ~/rqt_perspectives:/$HOME/.rqt_perspectives # keep rqt setings between container runs
     command: ["/bash_extra_env.sh"]
 
   dev:  # start a container used by IDEs like VS-code
