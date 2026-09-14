@@ -20,6 +20,17 @@ docker compose run --rm bash
 
 ```
 
+Control adap2e with joystick remote:
+```bash
+cd tirrex_remi_phd_ws/demos/examples/cezeaux_adap2e
+docker run --rm robot
+```
+
+
+## Connect to Adap2e embaded computer
+
+To syncronise local and robot modification, launch on your side `./scripts/autosync_ws user@192.168.13.1`.
+Now you just need to do modifications on your side, and they will be send automatically on the robot.
 
 
 # Origonal Readme

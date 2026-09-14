@@ -34,7 +34,10 @@ create_binded_files() {
   mkdir -p "${HOME}/.ros"
   mkdir -p "${HOME}/.config/ros.org"
   touch -a "${HOME}/.bash_history"
-  # touch -a "${HOME}/.Xauthority"  # used to open GUI through ssh
+  touch -a "${HOME}/.Xauthority"  # used to open GUI through ssh
+          #   $ ./scripts/create_ws
+          # Initialize ".env" file
+          # touch: setting times of '/home/rporee/.Xauthority': Operation not permitted
 }
 
 initialize_env_file

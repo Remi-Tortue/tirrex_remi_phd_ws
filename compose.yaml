@@ -1,5 +1,5 @@
 services:
-  compile:  # compile the workspace
+  compile: # compile the workspace
     extends:
       file: docker/common.yaml
       service: build
@@ -8,21 +8,22 @@ services:
         --symlink-install
         --event-handlers event_log- log-
         --continue-on-error
+        --packages-skip skeleton_detection_pkg
 
   bash:
     extends:
       file: docker/common.yaml
-      service: x11_gpu
+      service: x11_base
+      # service: x11_robot
     profiles: [optional]
     volumes:
       - ./docker/bash_extra_env.sh:/bash_extra_env.sh:ro
-      - ~/rqt_config:/$HOME/.config/ros.org
-      - ~/rqt_perspectives:/$HOME/.rqt_perspectives # keep rqt setings between container runs
+      - $HOME/rqt_config:/$HOME/.config/ros.org
+      - $HOME/rqt_perspectives:/$HOME/.rqt_perspectives # keep rqt setings between container runs
     command: ["/bash_extra_env.sh"]
 
-  dev:  # start a container used by IDEs like VS-code
+  dev: # start a container used by IDEs like VS-code
     extends:
       file: docker/common.yaml
       service: x11_base
     command: sleep infinity
-
