@@ -41,7 +41,12 @@ repositories:
     url: git@github.com:Remi-Tortue/ros2_visual_marker.git
     version: main
 
-  src/skeleton_detection:
+  src/gesture_msgs:
+    type: git
+    url: https://gitlab.laas.fr/rap/common/phd_remi/gesture_msgs.git
+    version: main
+
+  skeleton_detection:
     type: git
     url: https://gitlab.laas.fr/crizk1/skeleton_detection.git
     version: main

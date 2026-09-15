@@ -16,14 +16,15 @@ RUN --mount=type=bind,source=src,target=/tmp/src \
 # you can add here ubuntu packages that you want to install (or uncomment the existing ones)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      # gdb \
-      # gdbserver \
-      # valgrind \
-      # strace \
+    # gdb \
+    # gdbserver \
+    # valgrind \
+    # strace \
     ros-jazzy-pcl-ros \
     ros-jazzy-pcl-conversions \
     ros-jazzy-plotjuggler \
     ros-jazzy-plotjuggler-ros \
+    ros-jazzy-rqt-tf-tree \
     # ros-jazzy-open3d-conversions \
     wget \
     # snapd \

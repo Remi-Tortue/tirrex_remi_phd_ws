@@ -8,6 +8,7 @@ services:
         --symlink-install
         --event-handlers event_log- log-
         --continue-on-error
+        --base-paths src
         --packages-skip skeleton_detection_pkg
 
   bash:

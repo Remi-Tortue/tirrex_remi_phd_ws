@@ -29,7 +29,7 @@ fi
 host="$1"
 remote_path="$2"
 ssh_cmd="ssh"
-sync_list="compose.yaml src docker scripts demos README.md Dockerfile"
+sync_list="compose.yaml src docker scripts demos README.md Dockerfile skeleton_detection"
 
 if [[ -z "$remote_path" ]] ; then
   remote_path=$(basename -- "${PWD}")
