@@ -16,7 +16,7 @@ docker compose build compile
 docker compose run --rm compile
 
 # Enter the container shell :
-docker compose run --rm bash
+docker compose run --rm bash_b # or bash_r for the robot
 
 ```
 

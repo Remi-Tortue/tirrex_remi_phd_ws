@@ -51,4 +51,14 @@ repositories:
     url: https://gitlab.laas.fr/crizk1/skeleton_detection.git
     version: main
 
+  src/romea_lidar:
+    type: git
+    url: https://github.com/Romea/romea-ros2-lidar.git
+    version: jazzy
+
+  src/romea_gps:
+    type: git
+    url: https://github.com/Romea/romea-ros2-gps.git
+    version: jazzy
+
 # vim: ft=yaml

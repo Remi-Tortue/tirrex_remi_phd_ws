@@ -11,7 +11,19 @@ services:
         --base-paths src
         --packages-skip skeleton_detection_pkg
 
-  bash:
+  bash_r:
+    extends:
+      file: docker/common.yaml
+      # service: x11_base
+      service: x11_robot
+    profiles: [optional]
+    volumes:
+      - ./docker/bash_extra_env.sh:/bash_extra_env.sh:ro
+      - $HOME/rqt_config:/$HOME/.config/ros.org
+      - $HOME/rqt_perspectives:/$HOME/.rqt_perspectives # keep rqt setings between container runs
+    command: ["/bash_extra_env.sh"]
+
+  bash_b:
     extends:
       file: docker/common.yaml
       service: x11_base
