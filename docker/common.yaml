@@ -38,6 +38,7 @@ services:
       - HOME
       # - ROS_LOCALHOST_ONLY=1  # avoid sending multicast on the local network of your office
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      # - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       - CYCLONEDDS_URI=file:///dds_config/cyclonedds.xml  # this replaces ROS_LOCALHOST_ONLY=1
       - TIRREX_WORKSPACE=/opt/tirrex_ws  # default to included tirrex_ws
     network_mode: host

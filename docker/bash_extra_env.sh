@@ -8,7 +8,7 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:src/gazebo_procedural_world_generati
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:src/gazebo_procedural_world_generation/src/gazebo_procedural_world_generation/models:src/phd_experiment_config/worlds:src/ArUco_gazebo_tiles/models
 
 # Set ROS 2 environment variables
-export ROS_DOMAIN_ID=65
+# export ROS_DOMAIN_ID=3
 # export ROS_LOCALHOST_ONLY=1 # deprecated + no need since already setup in tirrex
 
 exec bash
