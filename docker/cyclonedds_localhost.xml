@@ -3,10 +3,11 @@
   xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
 
   <Domain Id="any">
-    <!-- <Discovery>
-      <ParticipantIndex>auto</ParticipantIndex>
-      <MaxAutoParticipantIndex>300</MaxAutoParticipantIndex>
-    </Discovery> -->
+    <Discovery>
+      <ParticipantIndex>none</ParticipantIndex>
+      <!-- <ParticipantIndex>auto</ParticipantIndex>
+      <MaxAutoParticipantIndex>300</MaxAutoParticipantIndex> -->
+    </Discovery>
     <General>
       <Interfaces>
         <NetworkInterface name="lo" multicast="true"/>
