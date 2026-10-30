@@ -31,6 +31,11 @@ repositories:
     url: git@github.com:Remi-Tortue/gazebo_procedural_world_generation.git
     version: main
 
+  src/phd_experiment_gazebo_worlds:
+    type: git
+    url: git@github.com:Remi-Tortue/phd_experiment_gazebo_worlds.git
+    version: main
+
   src/move_gz_object:
     type: git
     url: git@github.com:Remi-Tortue/move_gz_object.git
