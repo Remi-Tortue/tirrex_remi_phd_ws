@@ -64,6 +64,7 @@ repositories:
   data_processing-mpc_lexico_comparason:
     type: git
     url: git@github.com:Remi-Tortue/data_processing-mpc_lexico_comparason.git
+    version: main
 
 
 # vim: ft=yaml
