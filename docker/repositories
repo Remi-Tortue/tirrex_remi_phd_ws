@@ -61,4 +61,9 @@ repositories:
     url: https://github.com/Romea/romea-ros2-gps.git
     version: jazzy
 
+  data_processing-mpc_lexico_comparason:
+    type: git
+    url: git@github.com:Remi-Tortue/data_processing-mpc_lexico_comparason.git
+
+
 # vim: ft=yaml
