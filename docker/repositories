@@ -39,7 +39,7 @@ repositories:
   src/move_gz_object:
     type: git
     url: git@github.com:Remi-Tortue/move_gz_object.git
-    version: main
+    version: gz_sim
 
   src/ros2_visual_marker:
     type: git
